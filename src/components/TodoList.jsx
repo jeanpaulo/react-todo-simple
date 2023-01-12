@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { BsTrash, BsPencilSquare } from "react-icons/bs";
 
 function TodoList(props) {
   const todosList = props.todos;
@@ -15,7 +16,17 @@ function TodoList(props) {
           transition={{ duration: 0.2 }}
           whileHover={{ scale: 1.025 }}
         >
-          {todo.text}
+          <div className="todo-list__text">{todo.text}</div>
+          <div className="todo-list__button-options">
+            <button className="todo-list__button todo-list__button--edit">
+              <BsPencilSquare />
+              Editar
+            </button>
+            <button className="todo-list__button todo-list__button--delete">
+              <BsTrash />
+              Apagar
+            </button>
+          </div>
         </motion.div>
       ))}
     </div>

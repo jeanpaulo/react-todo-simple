@@ -15,6 +15,10 @@
   margin-top: 30px;
 }
 
+input, button {
+  font-family: inherit;
+}
+
 .todo-header .todo-input {
   font-family: inherit;
   padding: 14px 16px;
@@ -66,10 +70,69 @@
   background-color: #0093e9;
   background-image: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%);
   color: #f0f0f0;
-  /* transition: transform ease 300ms; */
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
-/* .todo-list__item:hover {
-  transform: scale(1.025);
-  transition: transform ease 400ms;
-} */
+  .todo-list__text {
+    width: 80%;
+  }
+
+  .todo-list__button-options {
+    /* border: 2px solid red; */
+    flex-grow: 1;
+    display: flex;
+    padding: 4px;
+    gap: 4px;
+  }
+
+    .todo-list__button {
+      width: 100px;
+      height: 40px;
+      padding: 0 25px;
+      
+      appearance: button;
+      background-color: #f0f0f0;
+      
+      color: #4f4f4f;
+      text-align: center;
+      line-height: 1.15;
+      text-transform: none;
+      
+      border-radius: 6px;
+      border-width: 0;
+      outline: none;
+
+      box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+      cursor: pointer;
+      
+      overflow: hidden;  
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .todo-list__button--edit {
+      background-color: #405cf5;
+      color: #f0f0f0;
+    }
+
+    .todo-list__button--delete {
+      background-color: #c0392b;
+      color: #f0f0f0;
+    }
+
+    .todo-list__button--edit:hover,
+    .todo-list__button--delete:hover {
+      filter: brightness(120%);
+    }
+
+    .todo-list__button:disabled {
+      cursor: default;
+    }
+
+    .todo-list__button:focus {
+      box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+    }
+
