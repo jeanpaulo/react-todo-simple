@@ -17,10 +17,18 @@ function App() {
     console.log(newTodoList);
   }
 
+  function removeTodo(id) {
+    const todoList = todos;
+
+    const newTodoList = todoList.filter((todo) => todo.id !== id);
+
+    setTodos(newTodoList);
+  }
+
   return (
     <div className="app">
       <TodoHeader onSubmit={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} removeTodo={removeTodo} />
     </div>
   );
 }

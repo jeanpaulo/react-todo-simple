@@ -22,7 +22,10 @@ function TodoList(props) {
               <BsPencilSquare />
               Editar
             </button>
-            <button className="todo-list__button todo-list__button--delete">
+            <button
+              className="todo-list__button todo-list__button--delete"
+              onClick={() => props.removeTodo(todo.id)}
+            >
               <BsTrash />
               Apagar
             </button>
