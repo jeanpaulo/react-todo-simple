@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 function TodoHeader(props) {
-  // const [input, setInput] = useState(props.editMode ? props.todo.text : "");
-  // const handleInputChange = (e) => setInput(e.target.value);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -25,8 +23,6 @@ function TodoHeader(props) {
     };
 
     props.onSubmit(todoToSave);
-
-    // setInput("");
     inputRef.current.value = "";
   }
 
@@ -39,8 +35,6 @@ function TodoHeader(props) {
           className="todo-input"
           name="todo-input"
           placeholder="Novo item"
-          // value={input}
-          // onChange={handleInputChange}
           ref={inputRef}
           autoComplete="off"
         />
@@ -50,37 +44,6 @@ function TodoHeader(props) {
           <button className="btn-save btn-save__update">Atualizar</button>
         )}
       </form>
-      {/* <form className="todo-header__form" onSubmit={handleSubmit}>
-        {props.todo?.id == null ? (
-          <>
-            <input
-              type="text"
-              className="todo-input"
-              name="todo-input"
-              placeholder="Novo item"
-              value={input}
-              onChange={handleInputChange}
-              ref={inputRef}
-              autoComplete="off"
-            />
-            <button className="btn-save btn-save__add">Adicionar</button>
-          </>
-        ) : (
-          <>
-            <input
-              type="text"
-              className="todo-input"
-              name="todo-input"
-              placeholder="Novo item"
-              value={input}
-              onChange={handleInputChange}
-              ref={inputRef}
-              autoComplete="off"
-            />
-            <button className="btn-save btn-save__update">Atualizar</button>
-          </>
-        )}
-      </form> */}
     </div>
   );
 }
