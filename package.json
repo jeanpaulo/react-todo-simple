@@ -1,9 +1,8 @@
 {
   "name": "react-todo-simple",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "homepage": "http://jeanpaulo.github.io/react-todo-simple",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
