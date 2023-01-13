@@ -99,6 +99,14 @@
   justify-content: space-between;
 }
 
+.todo-list__item--complete {
+  filter: grayscale(80%)
+}
+
+.todo-list__item--complete .todo-list__text {
+  text-decoration: line-through;
+}
+
   .todo-list__text {
     width: 80%;
   }
@@ -147,8 +155,14 @@
       color: #f0f0f0;
     }
 
-    .todo-list__button--edit:hover,
-    .todo-list__button--delete:hover {
+    .todo-list__button--complete {
+      background-color: #27ae60;
+      color: #f0f0f0;
+    }
+
+    .todo-list__button--edit:hover:not([disabled]),
+    .todo-list__button--delete:hover:not([disabled]),
+    .todo-list__button--complete:hover:not([disabled]) {
       filter: brightness(120%);
     }
 

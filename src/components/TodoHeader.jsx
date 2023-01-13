@@ -6,9 +6,6 @@ function TodoHeader(props) {
 
   useEffect(() => {
     inputRef.current.focus();
-    console.log("Modo edicao: ", props.editMode);
-    console.log("Todo: ", props.todo);
-
     if (props.editMode) {
       inputRef.current.value = props.todo.text;
     }

@@ -50,6 +50,21 @@ function App() {
     // console.log(todoToEdit);
   }
 
+  function completeTodo(id) {
+    const updatedTodoList = todos.map((item) => {
+      if (item.id == id) {
+        if (item?.complete === undefined) {
+          item.complete = true;
+          return item;
+        }
+
+        item.complete = !item.complete;
+      }
+      return item;
+    });
+    setTodos(updatedTodoList);
+  }
+
   return (
     <div className="app">
       <TodoHeader onSubmit={saveTodo} todo={currentTodo} editMode={editMode} />
@@ -58,6 +73,7 @@ function App() {
         removeTodo={removeTodo}
         updateTodo={updateTodo}
         editMode={editMode}
+        completeTodo={completeTodo}
       />
     </div>
   );
