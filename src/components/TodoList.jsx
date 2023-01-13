@@ -7,6 +7,14 @@ function TodoList(props) {
 
   return (
     <div className="todo-list">
+      <div
+        className={`todo-list__overlay ${
+          props.editMode ? "" : "todo-list__overlay-off"
+        }`}
+      >
+        &nbsp;
+      </div>
+
       {todosList.map((todo, index) => (
         <motion.div
           key={todo.id}
@@ -18,7 +26,10 @@ function TodoList(props) {
         >
           <div className="todo-list__text">{todo.text}</div>
           <div className="todo-list__button-options">
-            <button className="todo-list__button todo-list__button--edit">
+            <button
+              className="todo-list__button todo-list__button--edit"
+              onClick={() => props.updateTodo(todo.id)}
+            >
               <BsPencilSquare />
               Editar
             </button>

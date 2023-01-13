@@ -5,30 +5,60 @@ import TodoList from "./components/TodoList";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [editMode, setEditMode] = useState(false);
+  const [currentTodo, setCurrentTodo] = useState(null);
 
-  function addTodo(todo) {
+  function saveTodo(todo) {
     //TODO: make function?
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
 
+    if (editMode) {
+      const updatedTodoList = todos.map((item) => {
+        if (item.id == todo.id) {
+          item.text = todo.text;
+        }
+        return item;
+      });
+
+      setTodos(updatedTodoList);
+      setCurrentTodo(null);
+      setEditMode(false);
+      return;
+    }
+
     const newTodoList = [todo, ...todos];
     setTodos(newTodoList);
-    console.log(newTodoList);
+    // console.log(newTodoList);
   }
 
   function removeTodo(id) {
-    const todoList = todos;
+    // const todoList = todos;
 
-    const newTodoList = todoList.filter((todo) => todo.id !== id);
+    const newTodoList = todos.filter((todo) => todo.id !== id);
 
     setTodos(newTodoList);
+  }
+
+  function updateTodo(id) {
+    // console.log(id);
+    setEditMode(true);
+
+    const todoToEdit = todos.find((item) => item.id === id);
+    setCurrentTodo(todoToEdit);
+    // console.log(todoToEdit);
   }
 
   return (
     <div className="app">
-      <TodoHeader onSubmit={addTodo} />
-      <TodoList todos={todos} removeTodo={removeTodo} />
+      <TodoHeader onSubmit={saveTodo} todo={currentTodo} editMode={editMode} />
+      <TodoList
+        todos={todos}
+        removeTodo={removeTodo}
+        updateTodo={updateTodo}
+        editMode={editMode}
+      />
     </div>
   );
 }

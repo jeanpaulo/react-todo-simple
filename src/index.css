@@ -27,3 +27,7 @@ body {
   padding: 2rem;
   overflow-y: hidden;
 }
+
+input, button {
+  font-family: inherit;
+}
