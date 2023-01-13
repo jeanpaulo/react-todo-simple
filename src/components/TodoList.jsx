@@ -49,7 +49,6 @@ function TodoList(props) {
               <button
                 className="todo-list__button todo-list__button--delete"
                 onClick={() => props.removeTodo(todo.id)}
-                disabled={isDisabled}
               >
                 <BsTrash />
                 Apagar
